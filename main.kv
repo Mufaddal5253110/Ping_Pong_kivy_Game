@@ -1,0 +1,78 @@
+
+<PongBall>:
+    size:40,40
+    canvas:
+        Color:
+            rgba:0,0,0,1
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<Pongpadle>:
+    size:30,200
+    canvas:
+        Color:
+            rgba:1,0.3,0,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+
+
+<Pong_Game>:
+    ball:ball
+    left_paddle:left_paddle
+    right_paddle:right_paddle
+
+    canvas:
+        Color:
+            rgba:1,0.2,0.5,1
+        Rectangle:
+            pos: self.center_x-5,0
+            size: 10 , self.height
+    Label:
+        color:0,0,0,1
+        text:u'\u00A9'+'Mufaddal Shakir'
+        font_size:(root.width**2 + root.height**2) / 16**4
+        center_x:root.width-61
+        top:59
+
+    Label:
+        color:1,0,0,1
+        text:str(root.left_paddle.score)
+        center_x : root.width/4
+        top:root.height
+        font_size:(root.width**2 + root.height**2) / 11**4
+
+    Label:
+        color:0,0,1,1
+        text:str(root.right_paddle.score)
+        center_x : root.width*(3/4)
+        top:root.height
+        font_size:(root.width**2 + root.height**2) / 11**4
+
+    Label:
+        id: result
+        font_size: (root.width**2 + root.height**2) / 10**4
+        center_x: root.width / 2
+        top: root.height / 2 + 90
+        text: str(root.result)
+        color:0,0,0,1
+
+    PongBall:
+        id:ball
+        center:self.parent.center
+
+    Pongpadle:
+        id : left_paddle
+        x : root.x
+        center_y:root.center_y
+
+    Pongpadle:
+        id : right_paddle
+        x : root.width-self.width
+        center_y:root.center_y
+
+
+
